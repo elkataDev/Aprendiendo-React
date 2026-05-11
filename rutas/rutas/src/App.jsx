@@ -6,6 +6,7 @@ import Inicio from './Pages/Inicio'
 import Ordenadores from './Pages/Ordenadores'
 import ListaProductos from './Pages/ListaProductos'
 import DetalleProducto from './Pages/DetalleProducto'
+import NotFound from './Pages/NotFound'
 
 function App() {
 
@@ -23,10 +24,11 @@ function App() {
           <Route path='/ordenadores' element={<Ordenadores />}>
             <Route index element={<ListaProductos />} />
             {/* ruta Dinámica */}
-            <Route path='/ordenadores/:id' element={<DetalleProducto />} />
+            <Route path=':id' element={<DetalleProducto />} />
           </Route>
 
-
+          {/* ruta 404  Tiene que ser siempre la ultima */}
+          <Route path='*' element={<NotFound/>}/>
         </Routes>
       </div>
     </>

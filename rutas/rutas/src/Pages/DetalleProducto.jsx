@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams, useNavigate } from "react-router-dom"
 import { productos } from '../Productos/Productos'
 import './DetalleProducto.css'
+import { useEffect } from 'react'
 
 function DetalleProducto() {
     /* 
@@ -25,8 +26,27 @@ function DetalleProducto() {
     */
     const producto = productos.find(prod => prod.id === parseInt(idProductoSeleccionado))
 
-    /* Se comprueba si el producto seleccionado existe */
-    if (!producto) return <h2 style={{ textAlign: 'center', marginTop: '50px' }}>Producto no encontrado</h2>;
+    /**
+     *  Se comprueba si el producto seleccionado existe
+     * Si el producto no existe, lo mandamos a una ruta que no exista
+     * para que salte el <Route path="*" />
+    */
+
+    useEffect(() => {
+        if (!producto) {
+            navigate('/404-not-found');
+        }
+    }, [producto, navigate]);
+
+    /* 
+       Como el useEffect tarda un instante en ejecutarse, React intentará renderizar el return de abajo.
+       Si 'producto' es undefined, la app daría error al intentar leer producto.imagen.
+       Devolver 'null' evita que la app explote mientras ocurre la redirección y ejecuta el useEffect() mandandonos al 404.
+    */
+
+    if (!producto) {
+        return null;
+    }
 
     return (
         <div className="detalle-container">
