@@ -4,6 +4,8 @@ import Menu from './componentes/Menu'
 import { Route, Routes } from 'react-router-dom'
 import Inicio from './Pages/Inicio'
 import Ordenadores from './Pages/Ordenadores'
+import ListaProductos from './Pages/ListaProductos'
+import DetalleProducto from './Pages/DetalleProducto'
 
 function App() {
 
@@ -21,7 +23,7 @@ function App() {
           <Route path='/ordenadores' element={<Ordenadores />}>
             <Route index element={<ListaProductos />} />
             {/* ruta Dinámica */}
-            <Route path='/tienda/:id' element={<DetalleProducto />} />
+            <Route path='/ordenadores/:id' element={<DetalleProducto />} />
           </Route>
 
 
