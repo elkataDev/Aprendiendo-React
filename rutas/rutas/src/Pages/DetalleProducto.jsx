@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams, useNavigate } from "react-router-dom"
 import { productos } from '../Productos/Productos'
+import './DetalleProducto.css'
 
 function DetalleProducto() {
     const { id } = useParams();

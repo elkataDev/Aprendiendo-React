@@ -1,0 +1,105 @@
+/* Contenedor Principal con tamaño fijo */
+.detalle-container {
+    display: flex;
+    gap: 40px;
+    width: 900px; /* Ancho fijo */
+    height: 500px; /* Alto fijo */
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Evita que el contenido se salga si es mucho */
+}
+
+/* Caja de la Imagen con tamaño fijo */
+.img-box {
+    flex: 0 0 400px; /* No crece ni se encoge, se queda en 400px */
+    height: 100%;    /* Ocupa todo el alto del contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta la imagen sin estirarla ni cortarla */
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.img-box img:hover {
+    transform: scale(1.1);
+}
+
+/* Caja de Información */
+.info-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.info-box h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.info-box .precio {
+    font-size: 1.4rem;
+    color: #2ecc71;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.info-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 25px;
+    /* Limitamos el texto por si la descripción es muy larga */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Botón de Volver */
+.btn-volver {
+    align-self: flex-start; /* Para que no ocupe todo el ancho */
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: #444;
+    padding-left: 25px;
+}
+
+@media (max-width: 950px) {
+    .detalle-container {
+        width: 95%;
+        height: auto;
+        flex-direction: column;
+    }
+    .img-box {
+        width: 100%;
+        height: 300px;
+        flex: none;
+    }
+}
