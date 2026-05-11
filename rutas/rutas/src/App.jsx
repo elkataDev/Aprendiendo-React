@@ -36,7 +36,7 @@ function App() {
           <Route path="/login" element={<Login loginCorrecto={setLogin} />} />
 
           {/* Ruta Protegida */}
-          <Route path="/cuenta" element={<RutaProtegida logeado={login}> {/* hijo a padre (rutaProtegida --> app) */} <Cuenta /> </RutaProtegida>} />
+          <Route path="/cuenta" element={<RutaProtegida logeado={login}> <Cuenta /> </RutaProtegida>} /> {/* hijo a padre (rutaProtegida --> app) */}
 
           {/* ruta 404  Tiene que ser siempre la ultima */}
           <Route path='*' element={<NotFound />} />
