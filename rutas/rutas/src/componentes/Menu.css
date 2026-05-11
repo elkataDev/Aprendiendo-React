@@ -1,0 +1,22 @@
+/* Estilo base para todos los enlaces del menú */
+.link {
+  text-decoration: none;
+  color: #ffffff; 
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  font-family: sans-serif; 
+}
+
+/* Estilo cuando el enlace está ACTIVO (donde está el usuario) */
+.link-active {
+  text-decoration: none;
+  color: #00ffff; /* Cian neón */
+  border-bottom: 2px solid #ff00ff; 
+  text-shadow: 0 0 5px #00ffff;
+  font-weight: bold;
+}
+
+/* Efecto opcional al pasar el ratón */
+.link:hover {
+  color: #ff00ff;
+}

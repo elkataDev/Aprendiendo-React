@@ -21,12 +21,15 @@ function App() {
       <Routes>
         {/* ruta basica*/}
         <Route path='/' element={<Home />} />
+
         {/* ruta anidada*/}
         <Route path='/tienda' element={<Tienda />}>
           <Route index element={<ListaProductos />} />
           {/* ruta Dinámica */}
           <Route path='/tienda/:id' element={<DetalleProducto />}></Route>
         </Route>
+
+        
         {/*Admin (Protegida Sin Acceso)*/}
         <Route path='/adminSinAcceso' element={
           <RutaProtegida esAdmin={soyAdmin}>
