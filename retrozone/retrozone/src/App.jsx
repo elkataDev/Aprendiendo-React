@@ -36,12 +36,15 @@ function App() {
             <Admin />
           </RutaProtegida>
         }></Route>
+
+        
         {/*Admin (Protegida)*/}
         <Route path='/admin' element={
           <RutaProtegida esAdmin={soyAdmin2}>
             <Admin />
           </RutaProtegida>
         }></Route>
+        
         {/* ruta 404 */}
         <Route path='*' element={<NotFound />} />
 

@@ -7,9 +7,13 @@ import Ordenadores from './Pages/Ordenadores'
 import ListaProductos from './Pages/ListaProductos'
 import DetalleProducto from './Pages/DetalleProducto'
 import NotFound from './Pages/NotFound'
+import Login from './Pages/Login'
+import Cuenta from './Pages/Cuenta'
+import RutaProtegida from './componentes/RutaProtegida'
 
 function App() {
 
+  const [login, setLogin] = useState(false); // varible para autenticar
 
   return (
     <>
@@ -27,8 +31,15 @@ function App() {
             <Route path=':id' element={<DetalleProducto />} />
           </Route>
 
+
+          { /* Props hijo a padre (login --> app) */}
+          <Route path="/login" element={<Login loginCorrecto={setLogin} />} />
+
+          {/* Ruta Protegida */}
+          <Route path="/cuenta" element={<RutaProtegida logeado={login}> {/* hijo a padre (rutaProtegida --> app) */} <Cuenta /> </RutaProtegida>} />
+
           {/* ruta 404  Tiene que ser siempre la ultima */}
-          <Route path='*' element={<NotFound/>}/>
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
     </>
