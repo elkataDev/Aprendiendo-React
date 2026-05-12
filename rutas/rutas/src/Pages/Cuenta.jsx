@@ -4,7 +4,7 @@ function Cuenta() {
   return (
     <>
         <h1>Bienvenido a tu cuenta</h1>
-    
+        
     </>
   )
 }
