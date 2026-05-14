@@ -11,8 +11,8 @@ function UserCard({ nombre, email, edad }) {
 
     return (
         <div style={{ border: "1px solid #ccc", padding: 10, marginBottom: 10 }}>
-            {nombre}
-            {email}
+            {nombre}<br/>
+            {email}<br/>
             Edad: {edad}</div>
     )
 }
