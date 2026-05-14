@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import UserCard from './componentes/UserCard'
+import { Route, Routes } from 'react-router-dom' // Importante 
+import Contador from './componentes/Contador'
+import Inicio from './Paginas/Inicio'
+import Usuarios from './componentes/Usuarios'
+import DetallesUsuarios from './componentes/DetallesUsuarios'
 
 function App() {
 
-  // Variables Contador Ejercicio 2
-  const [count, setCount] = useState(0) // Contador
-  const color = count > 0 ? "green" : count < 0 ? "red" : "black" // Condicion Color
 
   return (
     <>
@@ -20,25 +22,26 @@ function App() {
       <UserCard nombre={"maria"} email={"mariaHernandez123@gmail.com"} edad={15}></UserCard>
       <UserCard nombre={"juan"} email={"juanHernandez123@gmail.com"} edad={20}></UserCard>
 
-      {/**
-       * Ejercicio 2
-       * Un contador con dos botones (sumar y restar)
-       * Condicion de color:
-       * Positivo: green  Negativo: red  0: Black       
-       */}
 
-      <button type="button" className="counter" onClick={() => setCount((count) => count + 1)}>
-        sumar
-      </button>
+      {/* Ejercicio 2 */}
+      <Contador />
 
 
-      <button type="button" className="counter" onClick={() => setCount((count) => count - 1)}>
-        Restar
-      </button>
+      {/** EJERCICIO 3 – Rutas con React Router
+         * Configura estas rutas:
+         * / → Página de inicio
+         * /usuarios → Lista de usuarios con enlaces a detalles
+         * /usuarios/:id → Detalle del usuario mostrando el id de la URL
+         * Los usuarios deben de ser datos estáticos dentro del componente
+         */}
 
-      <p style={{ border: "1px solid white", color}}>{count}</p>
+      <Routes>
 
+        <Route path='/' element={<Inicio />} />
+        <Route path='/usuarios' element={<Usuarios/>}/>
+        <Route path='/usuarios/:id' element={<DetallesUsuarios/>}/>
 
+      </Routes>
 
     </>
   )
