@@ -6,6 +6,7 @@ import Contador from './componentes/Contador'
 import Inicio from './Paginas/Inicio'
 import Usuarios from './componentes/Usuarios'
 import DetallesUsuarios from './componentes/DetallesUsuarios'
+import Error404 from './Paginas/Error404'
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
         <Route path='/' element={<Inicio />} />
         <Route path='/usuarios' element={<Usuarios/>}/>
         <Route path='/usuarios/:id' element={<DetallesUsuarios/>}/>
-
+        <Route path='*' element={<Error404/>}/>
       </Routes>
 
     </>
