@@ -10,6 +10,8 @@ function Formulario() {
         edad: ''
     })
 
+    const [errores, setErrores] = useState([]); // Manejo de errores
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormulario({
@@ -30,7 +32,7 @@ function Formulario() {
 
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!regexEmail.test(formulario.email)) {
-            nuevosErrores.nombre = 'El nombre solo debe contener letras y espacios';
+            nuevosErrores.email = 'El email esta mal';
         }
 
         if (Object.keys(nuevosErrores).length > 0) {
@@ -64,6 +66,7 @@ function Formulario() {
                             onChange={handleChange}
                         />
                     </label>
+                    {errores.nombre && <span style={{ color: "red" }}>{errores.nombre}</span>}
                 </div>
                 <div>
                     <label>
@@ -87,6 +90,7 @@ function Formulario() {
                             onChange={handleChange}
                         />
                     </label>
+                    {errores.email && <span style={{ color: "red" }}>{errores.email}</span>}
                 </div>
                 <button type='submit'>Enviar Formulario</button>
             </form>
