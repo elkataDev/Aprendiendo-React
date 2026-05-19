@@ -7,6 +7,7 @@ import Inicio from './Paginas/Inicio'
 import Usuarios from './componentes/Usuarios'
 import DetallesUsuarios from './componentes/DetallesUsuarios'
 import Error404 from './Paginas/Error404'
+import Formulario from './componentes/Formulario'
 
 function App() {
 
@@ -28,6 +29,22 @@ function App() {
       <Contador />
 
 
+      {/**EJERCICIO 4 – Formulario y API
+       * Formulario con campos: nombre, email .
+       * Validaciones con regex:
+       * Email : : const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+       * Nombre: : const regexNombre = /^[a-zA-ZÀ-ÿ\s]{2,40}$/
+       * Validar email con formato correcto
+       * Nombres de las variables a utilizar : nombre, email, edad.
+       * Al enviar:
+       * Mostrar errores si existen
+       * Enviar los datos a una API simulada (MockAPI)
+       * Endpoint a utilizar : https://6970b24178fec16a63fea11f.mockapi.io/usuarios
+       * Mostrar la respuesta en consola */}
+
+      <Formulario />
+
+
       {/** EJERCICIO 3 – Rutas con React Router
          * Configura estas rutas:
          * / → Página de inicio
@@ -39,9 +56,9 @@ function App() {
       <Routes>
 
         <Route path='/' element={<Inicio />} />
-        <Route path='/usuarios' element={<Usuarios/>}/>
-        <Route path='/usuarios/:id' element={<DetallesUsuarios/>}/>
-        <Route path='*' element={<Error404/>}/>
+        <Route path='/usuarios' element={<Usuarios />} />
+        <Route path='/usuarios/:id' element={<DetallesUsuarios />} />
+        <Route path='*' element={<Error404 />} />
       </Routes>
 
     </>
