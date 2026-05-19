@@ -20,6 +20,25 @@ function Formulario() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const nuevosErrores = {};
+
+        const nombreRegex = /^[a-zA-ZÀ-ÿ\s]{2,40}$/;
+        if (!nombreRegex.test(formulario.nombre)) {
+            nuevosErrores.nombre = 'El nombre solo debe contener letras y espacios';
+        }
+
+        const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!regexEmail.test(formulario.email)) {
+            nuevosErrores.nombre = 'El nombre solo debe contener letras y espacios';
+        }
+
+        if (Object.keys(nuevosErrores).length > 0) {
+            setErrores(nuevosErrores);
+            return;
+        }
+
+
         try {
             const response = await fetch('https://6971f19032c6bacb12c51fd4.mockapi.io/Formulario', {
                 method: 'POST',
