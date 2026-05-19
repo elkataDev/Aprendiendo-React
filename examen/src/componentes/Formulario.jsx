@@ -6,7 +6,7 @@ function Formulario() {
 
     const [formulario, setFormulario] = useState({
         nombre: '',
-        emai: '',
+        email: '',
         edad: ''
     })
 
